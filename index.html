@@ -5,6 +5,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>今天你坐错车或者坐过站了吗? 哈...</h1>
+    <h1 id="b">今天你坐错车或者坐过站了吗? 哈...</h1>
+    <button id="a">点我点我</button>
+    <script>
+        window.onload = function() {
+            document.getElementById('a').onclick = function() {
+                document.getElementById('b').innerHTML = '哈, 我今天坐错车了,好开心~';
+            }
+        }
+    </script>
 </body>
 </html>
