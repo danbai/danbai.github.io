@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.clearfix:after {
+    display: block;
+    visibility: hidden;
+    height: 0;
+    content: '.';
+    clear: both;
+}
+body {
+    width: 100%;
+    color: #000;
+    background: #fff;
+    line-height: 1;
+    font-size: 12px;
+}
+.main {
+    width: 320px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    background: #313131;
+    padding-bottom: 12px;
+}
+.main .header {
+    padding: 5px 0 0 6px;
+    margin-bottom: 30px;
+}
+.main .header ul {
+    float: left;
+    margin-right: 4px;
+    padding-top: 3px;
+}
+.main .header ul li {
+    width: 7px;
+    height: 7px;
+    border-radius: 4px;
+    border: 1px solid #fff;
+}
+.main .header ul li {
+    float: left;
+    margin-right: 1px;
+}
+.main .header ul li.current {
+    background: #fff;
+}
+.main .header span {
+    float: left;
+    margin-right: 7px;
+}
+.main .header .slide_down {
+    width: 36px;
+    height: 7px;
+    border-radius: 3px;
+    background: #7f7f81;
+    margin: 4px 30px 0 0;
+}
+.main .header .lock {
+    width: 14px;
+    height: 13px;
+    background: url('../images/images/lock.gif') 0 0 no-repeat;
+    background-size: 14px 13px;
+}
+.main .header .clock {
+    width: 13px;
+    height: 13px;
+    background: url('../images/images/clock.gif') 0 0 no-repeat;
+    background-size: 13px 13px;
+}
+.main .header .battery_percent {
+    margin-right: 0;
+    width: 30px;
+    overflow: hidden;
+}
+.main .header .operator {
+    margin-right: 0;
+    width: 55px;
+    overflow: hidden;
+}
+.main .header .battery_img {
+    width: 30px;
+    height: 13px;
+    background: url('../images/images/battery2.png') 0 0 no-repeat;
+    background-size: 30px 13px;
+    position: relative;
+}
+.main .header .battery_img i {
+    height: 11px;
+    background: #fff;
+    position: absolute;
+    left: 1px;
+    top: 1px;
+}
+.main .header .net {
+    margin-right: 0;
+    width: 30px;
+    overflow: hidden;
+}
+.main #time {
+    height: 75px;
+    font-size: 85px;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+.main #date {
+    height: 16px;
+    font-size: 16px;
+    margin-bottom: 210px;
+}
+.main #slide_lock {
+    color: #020202;
+    font-size: 24px;
+    padding-left: 88px;
+    margin-bottom: 54px;
+}
+.main #slide_lock li {
+    float: left;
+}
+.main #slide_lock li.current {
+    color: #fefeff;
+}
+.main .footer span {
+    float: left;
+}
+.main .footer .slide_up {
+    width: 36px;
+    height: 7px;
+    border-radius: 3px;
+    background: #7f7f81;
+    margin: 11px 108px 0 142px;
+}
+.main .footer .photo {
+    width: 27px;
+    height: 21px;
+    background: url('../images/images/photo.png') 0 0 no-repeat;
+    background-size: 27px 21px;
+}

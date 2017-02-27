@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">   <!-- 更加标准的 lang 属性写法 http://zhi.hu/XyIa -->
+    <head>
+        <meta charset="utf-8">
+        <!--ios,android的浏览器都是基于webkit内核,强制让文档的宽度与设备的宽度1:1,并且文档的最大宽度比例是1.0,且不允许用户点击屏幕放大浏览-->
+        <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <!--width=device-width 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边-->
+        <!--iphone设备中的safari私有meta标签,它表示:允许全屏模式浏览-->
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <!--iphone中的私有标签,他指定iphone中safari订端的状态条的样式-->
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <!--告诉设备忽略将页面中的数字识别为电话号码-->
+        <meta content="telephone=no" name="format-detection" />
+        <!--android中禁止自动识别页面中的邮件地址,ios中不会自动识别邮件地址-->
+        <meta content="email=no" name="format-detection" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="for keywords">
+        <meta name="description" content="for description">
+        <title>双指缩放</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background: #fff;
+                height: 2000px;
+                width: 100%;
+            }
+            #holder {
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                box-sizing: border-box;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+                background: #fff;
+                border: 5px solid green;
+                bottom: 0;
+                right: 0;
+            }
+            #img {
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+                position: absolute;
+                background: url('../images/1.jpg');
+                background-size: 100%;
+                background-repeat: no-repeat;
+                display: block;
+                height: 200px;
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="holder">
+            <div id="img">
+                
+            </div>
+        </div>
+        <script>
+            //初始化布局
+            function $(sel) {
+                return document.querySelector(sel);
+            }
+
+            function rebuild() {
+                setTimeout(function() {
+                    var box;
+                    //detect the size of the viewable area, hchrome and vchrome are the area lost to OS chrome,
+                    //based on browser detection
+                    if (Math.abs(window.orientation) > 0) {
+                        box = [screen.height, screen.width - hchrome];
+                    } else {
+                        box = [screen.width, screen.height - vchrome];
+                    }
+
+                    $('#holder').style.height = box[1] + 'px';
+                    $('#holder').style.width = box[0] + 'px';
+                    hero.fitToBox(box);
+                    window.scrollTo(0 ,1);
+                }, 50);
+            }
+
+            window.setTimeout(function() {
+                window.scrollTo(0, 1);
+                rebuild();
+            }, 50);
+
+            document.addEventListener('orientationchange', rebuild);
+
+            //hardcoded values from the large size of the chicken image
+            var imageHeight = 1267,
+                imageWidth = 1900;
+
+            var hero = (function(init) {
+                var currentDims = [],
+                    top = 0,
+                    left = 0,
+                    center = [0, 0],
+                    image = $('#img');
+
+                setSrc('../images/1.jpg');
+
+                //set n new src, waits until the new image is loaded before replacing it 
+                function setSrc(src) {
+                    var img = new Image();
+                    img.onload = function() {
+                        console.log('loaded' + src);
+                        image.style.background = 'url(' + src + ')';
+                    }
+                    img.src = src;
+                }
+
+                function setScale(scale, animate) {
+                    var startLen;
+
+                    function handleTouch(e) {
+                        e.preventDefault();
+
+                        var x, y, len;
+
+                        if (e.type === 'touchstart') {
+                            hero.setSrc('../images/1.jpg');
+
+                            if (e.touches.length > 1) {
+                                startLen = dist(
+                                    [e.touches[0].screenX, e.touches[0].screenY],
+                                    [e.touches[1].screenX, e.touches[1].screenY]
+                                );
+                            }
+                        } else if (e.type === 'touchmove' && e.touches.length === 2) {
+                            //找到中心点
+                            x = (e.touches[0].pageX + e.touches[1].pageY) / 2;
+                            y = (e.touches[0].pageY + e.touches[1].pageY) / 2;
+
+                            hero.setCenter(Math.round(x), Math.round(y));
+
+                            len = dist(
+                                [e.touches[0].screenX, e.touches[0].screenY],
+                                [e.touches[1].screenX, e.touches[1].screenY]
+                            );
+
+                            hero.setScale(len / startLen);
+                        } else if (e.type === 'touchend' || e.type === 'touchcancel') {
+                            hero.setScale(1, true);
+                        }
+                    }
+                }
+
+                function fitToBox(dimsArr) {
+                    var imgw,
+                        imgh,
+                        scaleFactor,
+                        w = dimsArr[0],
+                        h = dimsArr[1];
+
+                    //this is a landscape photo so i can assume w > h
+                    imgw = w;
+
+                    scaleFactor = w / imageWidth;
+                    imgh = Math.round(imageHeight * scaleFactor);
+                    image.style.width = imgw + 'px';
+                    image.style.height = imgh + 'px';
+                    currentDims = [imgw, imgh];
+                    top = (h / 2) - (imgh / 2);
+                    image.style.top = top + 'px';
+                }
+
+                function setCenter(centerArr) {
+                    center = centerArr;
+                }
+
+                return {
+                    setScale: setScale,
+                    setCenter: setCenter,
+                    fitToBox: fitToBox,
+                    setSrc: setSrc
+                }
+            }());
+
+            document.ontouchmove = function(e) {
+                e.preventDefault();
+            }
+
+            //确定比例因子
+            function dist(pointA, pointB) {
+                return Math.sqrt(
+                    Math.pow((pointA[0] - pointB[0]), 2) + Math.pow((pointA[1] - pointB[1]), 2)
+                );
+            }
+
+            //应用变换
+            function setScale(scale, animate) {
+                //this is to allow animated 'snap back behavior'
+                if (animate) {
+                    image.style[TRANSITION] = TRANSFORM_CSS + '0.2s ease-out';
+                } else {
+                    image.style[TRANSITION] = 'none';
+                }
+
+                //center is the previously set center point of the transform
+                var tx = center[0] + scale * (0 - center[0]);
+                var ty = center[1] + scale * (top - center[1]);
+
+                //turn page coordinate into an object coordinate
+                //this does not need to be done for X because the image is flush with the side of the browser
+                ty = ty - top;
+                image.style[TRANSFORM] = 'martix(' + scale + ', 0, 0, ' + scale + ', ' + tx + ', ' + ty + ')';
+            }
+        </script>
+    </body>
+</html>

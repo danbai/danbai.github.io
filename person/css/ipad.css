@@ -1,0 +1,16 @@
+.container {
+    padding: 0 10px;
+}
+.nav-li {
+    width: auto;
+}
+.sidebar {
+    position: relative;
+    top: 0;
+    width: auto;
+    padding: 0;
+    text-align: center;
+}
+.main {
+    margin: 0;
+}

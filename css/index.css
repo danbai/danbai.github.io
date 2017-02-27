@@ -1,0 +1,490 @@
+/* CSS Document */
+/* Reset cCSS */
+html {
+	background: #fff;
+	color: #666;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	font-family: "微软雅黑","黑体","宋体";
+	line-height: 1;
+}
+h1, h2, h3, h4, h5, h6, p, ul, li, dl, dt, dd, table, th, tr, td, input, img, ol, button {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+}
+img {
+	border: none;
+}
+a {
+	text-decoration: none;
+	color: #5e5e5e;
+}
+.clearfix:after {
+	display: block;
+	content: ".";
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+select, input, button{
+	vertical-align: middle;
+	font-size: 12px;
+	font-family: "微软雅黑","黑体","宋体";
+	border: none;
+	outline: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.auto {
+	width: 1100px;
+	margin: 0 auto;
+}
+/* Index CSS */
+/*gray div*/
+.gray_div {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: #000;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	z-index: 20;
+	display: none;
+}
+.login_register_div {
+	padding: 10px;
+	width: 400px;
+	position: fixed;
+	left: 50%;
+	margin-left: -210px;
+	top: 100px;
+	background: #fff;
+	border: 1px solid #333;
+	z-index: 30;
+	display: none;
+}
+#login_div {
+	z-index: 40;
+}
+.input_login_register_p {
+	margin-bottom: 10px;
+}
+.input_login_register {
+	width: 180px;
+	height: 24px;
+	line-height: 24px;
+	border: 1px solid #ccc;
+}
+.close_login_register {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+.login_register_btn {
+	width: 50px;
+	height: 25px;
+	color: #fff;
+	cursor: pointer;
+}
+/* header */
+.header {
+	height: 70px;
+	padding-top: 24px;
+}
+.header.header_fixed {
+	margin-bottom: 50px;
+}
+.header .header_content .header_content_left {
+	float: left;
+}
+.header .header_content .header_content_left h1 a {
+	display: inline-block;
+	font-size: 18px;
+	margin-bottom: 15px;
+	color: #5e5e5e;
+	font-weight: normal;
+}
+.header .header_content .header_content_left h1 span {
+	font-weight: normal;
+}
+.header .header_content .header_content_left h1 button {
+	width: 50px;
+	height: 25px;
+	color: #fff;
+	cursor: pointer;
+}
+.header .header_content .header_content_right {
+	width: 830px;
+	float: right;
+	text-align: right;
+}
+.header .header_content .header_content_right #weather {
+	margin-bottom: 15px;
+}
+.header .header_content .header_content_right #weather img {
+	width: 16px;
+	height: 16px;
+	position: relative;
+	top: 4px;
+}
+.header .header_content .header_content_right #message {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 14px;
+}
+/* nav */
+.nav {
+	height: 50px;
+	width: 100%;
+	background: #458fd2;
+}
+.nav.nav_fixed {
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+.nav ul li {
+	float: left;
+}
+.nav ul li a {
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 15px;
+	font-size: 16px;
+	color: #fff;
+}
+.nav ul .current a {
+	background: #2D77BB;
+}
+.nav ul li a:hover {
+	background: #474e5d;
+}
+/* crumbs */
+.crumbs {
+	height: 38px;
+	line-height: 38px;
+	background: #e6e6e6;
+}
+.crumbs .crumbs_content ul {
+	float: left;
+}
+.crumbs .crumbs_content ul li {
+	float: left;
+	margin-right: 3px;
+}
+.crumbs .crumbs_content ul .second_show {
+	display: none;
+}
+.crumbs .crumbs_content ul li a {
+	display: block;
+	height: 38px;
+}
+.crumbs .crumbs_content .search {
+	float: right;
+}
+.crumbs .crumbs_content .search input {
+	width: 174px;
+	height: 23px;
+	padding-left: 7px;
+	line-height: 23px;
+	margin-right: 5px;
+}
+.crumbs .crumbs_content .search button {
+	width: 44px;
+	height: 25px;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+}
+/* main */
+.main {
+	min-height: 600px;
+	background: #f0f0f0;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+.main .main_content .left {
+	float: left;
+	width: 720px;
+}
+.main .main_content .left .module_wrap {
+	height: 700px;
+	width: 720px;
+	overflow: auto;
+}
+.main .main_content .left .box {
+	width: 688px;
+	border: 1px solid #d0d0d0;
+	border-radius: 5px;
+	margin-bottom: 15px;
+	padding: 26px 15px 15px 15px;
+	background: #fff;
+}
+.main .main_content .left .box:hover {
+		box-shadow: 3px 3px 3px #d0d0d0;
+}
+.main .main_content .left .box h2 a {
+	display: block;
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 20px;
+	color: #444;
+}
+.main .main_content .left .box .box_date {
+	color: #ee6fa0;
+	margin-bottom: 20px;
+}
+.main .main_content .left .box .box_date .date {
+	margin-right: 10px;
+	color: #a5a5a5;
+}
+.main .main_content .left .box .box_intro {
+	margin-bottom: 20px;
+	line-height: 1.5;
+	/*height: 36px;*/
+	overflow: hidden;
+}
+.main .main_content .left .box .box_intro .person_href {
+	font-size: 24px;
+}
+.main .main_content .left .box .read_all {
+	display: block;
+	width: 92px;
+	height: 37px;
+	line-height: 37px;
+	text-align: center;
+	color: #fff;
+	background: #ccc;
+	font-size: 16px;
+	border-radius: 5px;
+}
+.main .main_content .left .box .read_all:hover {
+	background: #ea4c89
+}
+.main .main_content .left ul {
+	text-align: center;
+}
+.main .main_content .left ul li {
+	display: inline-block;
+	margin-right: 5px;
+}
+.main .main_content .left ul li button {
+	padding: 14px;
+	color: #fff;
+	background: #ccc;
+	cursor:pointer;
+}
+.main .main_content .left ul li button:hover {
+	background: #00adef;
+}
+.main .main_content .left ul #btn_wrap button {
+	margin-right: 5px;
+}
+.main .main_content .left ul #btn_wrap button.current {
+	background: #00adef;
+}
+.main .main_content .right {
+	float: right;
+	width: 360px;
+}
+.main .main_content .right .box {
+	width: 328px;
+	border: 1px solid #d0d0d0;
+	border-radius: 5px;
+	margin-bottom: 15px;
+	padding: 26px 15px 15px 15px;
+	background: #fff;
+}
+.main .main_content .right .box:hover {
+		box-shadow: 3px 3px 3px #d0d0d0;
+}
+.main .main_content .right .box p {
+	font-weight: bold;
+	font-size: 16px;
+	color: #666;
+	margin-bottom: 10px;
+}
+.main .main_content .right .box ul li {
+	color: #a5a5a5;
+	line-height: 2;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.main .main_content .right .box ul li a {
+	font-size: 14px;
+}
+.main .main_content .right .box ul li a:hover {
+	color: #ee6fa0;
+}
+.main .main_content .right .box_cloud ul li {
+	float: left;
+}
+.main .main_content .right .box_cloud ul li a {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	color: #fff;
+	margin: 0 5px 5px 0;
+	background: #ccc;
+	border-radius: 5px;
+}
+.main .main_content .right .box_cloud ul li a:hover {
+	color: #fff;
+	background: #00adef;
+}
+/* suggest */
+.suggest {
+	padding: 23px 0 10px 0;
+	background: #e6e6e6;
+}
+.suggest .suggest_content .suggest_content_left {
+	float: left;
+}
+.suggest .suggest_content .suggest_content_right {
+	float: right;
+}
+.suggest .suggest_content p {
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+.suggest .suggest_content ul li{
+	float: left;
+}
+.suggest .suggest_content ul li a {
+	display: block;
+	font-size: 14px;
+	margin-bottom: 12px;
+}
+.suggest .suggest_content ul li a:hover {
+	color: #34ae5b;
+}
+.suggest .suggest_content .suggest_content_left ul {
+	width: 720px;
+	float: left;
+}
+.suggest .suggest_content .suggest_content_left ul li {
+	width: 144px;
+}
+.suggest .suggest_content .suggest_content_right ul {
+	width: 352px;
+	float: right;
+}
+.suggest .suggest_content .suggest_content_right ul li {
+	width: 176px;
+}
+/* footer */
+.footer {
+	height: 70px;
+	background: #474e5d;
+	color: #b3b5ba;
+	padding: 35px 0 5px 0;
+}
+.footer a {
+	color: #b3b5ba;
+}
+.footer .footer_content ul {
+	margin-bottom: 20px;
+}
+.footer .footer_content ul li {
+	float: left;
+}
+.footer .footer_content ul li a {
+	display: block;
+	font-size: 16px;
+	margin-right: 16px;
+}
+.footer .footer_content ul li a:hover {
+	color: #fff;
+}
+/* left box */
+#left_box #module_title {
+	font-size: 24px;
+	margin-bottom: 10px;
+	font-weight: normal;
+}
+#left_box #module_msg {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+#left_box #module_msg #module_date {
+	margin-right: 10px;
+}
+#left_box #module_msg #module_views {
+	color: #ea4c89;
+}
+#left_box h3 {
+	font-size: 16px;
+	margin-bottom: 10px;
+	font-weight: normal;
+}
+#left_box .module_content h4 {
+	font-size: 14px;
+	margin: 10px 0;
+}
+#left_box .module_content img {
+	display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

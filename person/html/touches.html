@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">   <!-- 更加标准的 lang 属性写法 http://zhi.hu/XyIa -->
+    <head>
+        <meta charset="utf-8">
+        <!--ios,android的浏览器都是基于webkit内核,强制让文档的宽度与设备的宽度1:1,并且文档的最大宽度比例是1.0,且不允许用户点击屏幕放大浏览-->
+        <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <!--width=device-width 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边-->
+        <!--iphone设备中的safari私有meta标签,它表示:允许全屏模式浏览-->
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <!--iphone中的私有标签,他指定iphone中safari订端的状态条的样式-->
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <!--告诉设备忽略将页面中的数字识别为电话号码-->
+        <meta content="telephone=no" name="format-detection" />
+        <!--android中禁止自动识别页面中的邮件地址,ios中不会自动识别邮件地址-->
+        <meta content="email=no" name="format-detection" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="for keywords">
+        <meta name="description" content="for description">
+        <title>多点触摸</title>
+        <style>
+            .touched {
+                width: 100px;
+                height: 100px;
+                border: 1px solid #f00;
+                border-radius: 50px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <script>
+            window.onload = function() {
+                var TRANSFORM = 'webkitTransform',
+                    TRANSFORM_CSS = '-webkit-transform',
+                    TRANSITION = 'webkitTransition',
+                    TRANSITION_CSS = '-webkit-transition',
+                    TRANSITION_END = 'webkitTransitionEnd';
+
+                if (document.body.style.transform) {
+                    TRANSFORM = 'transform';
+                    TRANSFORM_CSS = 'ttransform';
+                    TRANSITION = 'transition';
+                    TRANSITION_CSS = 'transition';
+                    TRANSITION_END = 'transitionEnd';
+                }
+
+                var touches = {};
+
+                //构造函数,有id和node属性,每实例化一次创建一个touchee
+                function MyTouch(id) {
+                    this.id = id;
+                    var touchee = document.createElement('div');
+                    touchee.className = 'touched';
+                    touchee.style.opacity = 0;
+                    touchee.id = id;
+                    touchee.addEventListener(TRANSITION_END, function() {
+                        touchee.style[TRANSFORM] = '';
+                    });
+                    document.body.appendChild(touchee);
+                    this.node = touchee;
+                }
+
+                MyTouch.prototype.setPos = function(posX, posY) {
+                    this.node.style.opacity = 1;
+                    var x = Math.round(posX - 50) + 'px';
+                    var y = Math.round(posY - 50) + 'px';
+                    this.node.style[TRANSFORM] = 'translate3d(' + x + ', ' + y + ', 0)';
+                }
+
+                MyTouch.prototype.destroy = function(cb) {
+                    this.fade();
+                    var node = this.node,
+                        id = this.id;
+
+                    window.setTimeout(function() {
+                        node.parentNode && node.parentNode.removeChild(node);
+                        delete (touches[id]);
+                    }, 1000);
+                }
+
+                MyTouch.prototype.fade = function() {
+                    this.node.style[TRANSITION] = 'opacity 0.5s ease-in-out';
+                    this.node.style.opacity = 0;
+                }
+
+                function kill(id) {
+                    touches[id] && touches[id].destroy();
+                }
+
+                function reaper() {
+                    var id;
+
+                    for (id in touches) {
+                        kill(id);
+                    }
+                }
+
+                document.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    var len = e.touches.length, thistouch;
+
+                    for (var i = 0; i < len; i++) {
+                        thistouch = e.touches[i];
+
+                        //我们用identifier属性当做touches对象里的每个touch对象的键.
+                        touches[thistouch.identifier] = new MyTouch(thistouch.identifier);
+                        touches[thistouch.identifier].setPos(thistouch.pageX, thistouch.pageY);
+                    }
+                });
+
+                function mover(e) {
+                    e.preventDefault();
+                    var len = e.touches.length,
+                        thisTouch;
+
+                    for (var i = 0; i < len; i++) {
+                        thistouch = e.touches[i];
+
+                        if (!touches[thistouch.identifier]) {
+                            touches[thistouch.identifier]
+                        }
+                    }
+                }
+
+                var reap;
+
+                function touchend(e) {
+                    window.clearTimeout(reap);
+
+                    for (var i = 0; i < e.changedTouches.length; i++) {
+                        kill (e.changedTouches[i].identifier);
+                    }
+
+                    //kill any stray touches don't get cleaned
+                    reap = window.setTimeout(reaper, 100);
+                }
+
+                document.addEventListener('touchend', touchend);
+                document.addEventListener('touchcancel', touchend);
+            }
+        </script>
+    </body>
+</html>

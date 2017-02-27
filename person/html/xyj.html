@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>收被子,我们是专业的</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body style="padding: 10px;">
+    <h2>请把你的被子交给我们！</h2>
+
+    <form class="form-horizontal" action="../php/xyj_submit.php" method="post">
+      <div class="form-group">
+        <label for="user_name" class="col-sm-2 control-label">姓名</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="user_name" name="user_name" placeholder="姓名" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address" class="col-sm-2 control-label">收被子地址</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="address" name="address" placeholder="收被子地址" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="tel" class="col-sm-2 control-label">联系方式</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="tel" name="tel" placeholder="联系方式" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="msg" class="col-sm-2 control-label">特殊需求,请留言</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" rows="3" id="msg" name="msg"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="service" class="col-sm-2 control-label">选择您需要的服务</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="service" name="service">
+              <option>¥100/次,收完被子随手扔在房间</option>
+              <option>¥150/次,收完被子放在床上</option>
+              <option>¥200/次,收完被子放在床上并叠好</option>
+              <option>¥250/次,收完被子放在床上并叠好并拍软</option>
+            </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="time" class="col-sm-2 control-label">收被子时间(10:00~12:00, 14:00-17:00)</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="time" name="time">
+              <option>10:00</option>
+              <option>11:00</option>
+              <option>12:00</option>
+              <option>14:00</option>
+              <option>15:00</option>
+              <option>16:00</option>
+              <option>17:00</option>
+            </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary" id="sub_btn">请帮我收被子</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/xyj.js"></script>
+  </body>
+</html>

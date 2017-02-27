@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body {
+    line-height: 1;
+}
+.content {
+    width: 100%;
+    background: #f3f5d8;
+}
+.main {
+    width: 320px;
+    margin: 0 auto;
+}
+.main h1 {
+    font-size: 24px;
+    line-height: 2;
+}
+.main .nav {
+    height: 36px;
+    background: #000;
+}
+.main .nav li {
+    float: left;
+}
+.main .nav li a {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px;
+}
+.banner {
+    position: relative;
+}
+.left {
+    position: absolute;
+    left: 0;
+    top: 50px;
+}
+.right {
+    position: absolute;
+    right: 0;
+    top: 50px;
+}
+.banner ul {
+    width: 200px;
+    margin: 0 auto;
+}
+.banner ul li {
+    display: none;
+}
+.banner ul .current {
+    display: block;
+}

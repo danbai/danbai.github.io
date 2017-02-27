@@ -1,0 +1,29 @@
+@keyframes myFirst {
+    0% {
+        transform: rotate(0deg);
+        -ms-transform:rotate(0deg); /* Internet Explorer */
+        -moz-transform:rotate(0deg); /* Firefox */
+        -webkit-transform:rotate(0deg); /* Safari 和 Chrome */
+        -o-transform:rotate(0deg); /* Opera */
+    }
+    100% {
+        transform: rotate(360deg);
+        -ms-transform:rotate(360deg); /* Internet Explorer */
+        -moz-transform:rotate(360deg); /* Firefox */
+        -webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+        -o-transform:rotate(360deg); /* Opera */
+    }
+}
+
+#people {
+    margin: 5px;
+    border-radius: 50px;
+    animation: myFirst 10s infinite;
+    -moz-animation:myFirst 10s infinite;
+    /* Safari and Chrome: */
+    -webkit-animation:myFirst 10s infinite;
+    /* Opera: */
+    -o-animation:myFirst 10s infinite;
+}
+
+

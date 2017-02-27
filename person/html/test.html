@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">   <!-- 更加标准的 lang 属性写法 http://zhi.hu/XyIa -->
+    <head>
+        <meta charset="utf-8">
+        <!--ios,android的浏览器都是基于webkit内核,强制让文档的宽度与设备的宽度1:1,并且文档的最大宽度比例是1.0,且不允许用户点击屏幕放大浏览-->
+        <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <!--width=device-width 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边-->
+        <!--iphone设备中的safari私有meta标签,它表示:允许全屏模式浏览-->
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <!--iphone中的私有标签,他指定iphone中safari订端的状态条的样式-->
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <!--告诉设备忽略将页面中的数字识别为电话号码-->
+        <meta content="telephone=no" name="format-detection" />
+        <!--android中禁止自动识别页面中的邮件地址,ios中不会自动识别邮件地址-->
+        <meta content="email=no" name="format-detection" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="for keywords">
+        <meta name="description" content="for description">
+        <title>for test</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background: #fff;
+                color: #999;
+                padding-top: 44px;
+            }
+            .header {
+                width: 100%;
+                position: fixed;
+                height: 44px;
+                line-height: 44px;
+                font-size: 16px;
+                color: #fff;
+                background: #000;
+                left: 0;
+                top: 0;
+            }
+            .header .jump {
+                width: 42px;
+                height: 44px;
+                background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAIBAMAAABjQEDmAAAAJ1BMVEUAAAD///////////////////////////////////////////////+uPUo5AAAADHRSTlMAfxTn0TecjGteLwYq4vs2AAAAVElEQVQI12NgYGqfzQAEgaIgcmeFApBcfOYIkGI8c0YAKO1zxgoo5HPmTAIDQ8yZM0cZGNjOnDkClDhz5owBA4PMmTMHGRiYgRwFLEKYGrEaj+kIALytLjmL5HamAAAAAElFTkSuQmCC") no-repeat center;
+                float: right;
+                background-size: 24px;
+            }
+            .header h1 {
+                font-size: 16px;
+                position: absolute;
+                text-align: center;
+                width: 50%;
+                margin-left: 25%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .mallPage {
+                min-width: 320px;
+                max-width: 750px;
+                margin: 0 auto;
+                font-size: 12px;
+                font-family: '微软雅黑', '宋体';
+                padding-bottom: 0.2rem;
+            }
+            .mallPage img {
+                width: 100%;
+                display: block;
+            }
+            .mallPage .content {
+                position: relative;
+            }
+            .mallPage .content .left {
+                position: absolute;
+                left: 2%;
+                top: 12%;
+                width: 30px;
+                height: 30px;
+                background: #000;
+                color: #fff;
+                line-height: 30px;
+                text-align: center;
+                cursor: pointer;
+            }
+            .mallPage .content .right {
+                position: absolute;
+                right: 2%;
+                top: 12%;
+                width: 30px;
+                height: 30px;
+                background: #000;
+                color: #fff;
+                line-height: 30px;
+                text-align: center;
+                cursor: pointer;
+            }
+            .content {
+                height: 100px;
+            }
+            .content img {
+                width: 100%;
+                height: 100%;
+            }
+            .footer {
+                width: 100%;
+                height: 41px;
+                background: url('http://gtms01.alicdn.com/tps/i1/TB1o6omHpXXXXXmXXXXPZKc6XXX-750-82.jpg') no-repeat top center;
+                background-size: 100%;
+                position: relative;
+            }
+            .footer ul {
+                position: absolute;
+                left: 6.7rem;
+            }
+            .footer ul li {
+                float: left;
+                margin-right: 1rem;
+                line-height: 41px;
+            }
+            .footer ul .current {
+                color: #ff0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="jump"></div>
+            <h1>天猫连衣裙季NO1</h1>
+        </div>
+        <div class="mallPage">
+            <img src="http://gtms03.alicdn.com/tps/i3/TB1T5cgHpXXXXajXVXXRfy82pXX-750-115.jpg">
+            <img src="http://gtms03.alicdn.com/tps/i3/TB1RwseHpXXXXbIXVXXRfy82pXX-750-115.jpg">
+            <img src="http://gtms02.alicdn.com/tps/i2/TB13oZlHpXXXXa9XXXX.TK82pXX-750-120.jpg">
+            <img src="http://gtms02.alicdn.com/tps/i2/TB16YwmHpXXXXaFXXXXaoGb6XXX-750-81.jpg">
+            <div class="content">
+                <div class="img_wrap">
+                    <img src="http://gtms03.alicdn.com/tps/i3/TB1T5cgHpXXXXajXVXXRfy82pXX-750-115.jpg">
+                    <img src="http://gtms03.alicdn.com/tps/i3/TB1RwseHpXXXXbIXVXXRfy82pXX-750-115.jpg">
+                    <img src="http://gtms02.alicdn.com/tps/i2/TB13oZlHpXXXXa9XXXX.TK82pXX-750-120.jpg">
+                    <img src="http://gtms02.alicdn.com/tps/i2/TB16YwmHpXXXXaFXXXXaoGb6XXX-750-81.jpg">
+                </div>
+                <div class="left">left</div>
+                <div class="right">right</div>
+            </div>
+            <div class="footer">
+                <ul>
+                    <li class="current">国际快时尚</li>
+                    <li>时尚优选</li>
+                    <li>国内一线</li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            window.onload = function() {
+                var n = 0,
+                    aImg = document.querySelector('.img_wrap').querySelectorAll('img');
+
+                function displayImg(n) { 
+                    for (var i = 0; i < aImg.length; i++) {
+                        aImg[i].style.display = 'none';
+                    }
+
+                    aImg[n].style.display = 'block';
+                }
+                displayImg(n);
+
+                var oJump = document.querySelector('.jump'),
+                    oTitle = document.querySelector('h1'),
+                    oLeft = document.querySelector('.left'),
+                    oRight = document.querySelector('.right');
+
+                oJump.onclick = function() {
+                    if (oTitle.style.display === 'none') {
+                        oTitle.style.display = 'block';
+                    } else {
+                        oTitle.style.display = 'none';
+                    }
+                }
+
+                oLeft.onclick = function() {
+                    if (n === 0) {
+                        n = 3;
+                    } else {
+                        n--;
+                    }
+
+                    displayImg(n);
+                }
+
+                oRight.onclick = function() {
+                    if (n === 3) {
+                        n = 0;
+                    } else {
+                        n++;
+                    }
+
+                    displayImg(n);
+                }
+
+                var aLi = document.querySelector('.footer').querySelectorAll('li');
+
+                for (var i = 0; i < aLi.length; i++) {
+                    aLi[i].onclick = function() {
+                        for (var j = 0; j < aLi.length; j++) {
+                            aLi[j].className = '';
+                        }
+
+                        this.className = 'current';
+                    }
+                }
+            }
+        /*
+        1.
+        1200px的画布尺寸究竟在PC端是如何被解析的?
+        浏览器会对于你的画布尺寸进行二次解析,pc端的画布尺寸将会在浏览器根据你的显示器分辨率
+        进行1:1的等比解析.
+        移动端和PC端的本质区别就是pc端的浏览器解析宽度是和web端的画布宽度进行1:1的解析的,
+        但是移动端不是1:1解析的,具体这个比例是多少:像素密度(PPI, Pixel Per Inch).
+        ip5主屏分辨率:1136*640,主屏尺寸:4英寸,像素密度:320ppi.
+        当ppi是320时,已经不是pc端的1:1解析了,而是1:2的比例解析,所以1200像素的画布将会在320ppi上
+        被自动放大两倍,成为2400的像素.
+        在ios平台上,苹果把ppi稳定在了326左右,同样也意味着苹果把手机端的放大倍数稳定在了2倍上下,
+        而这个326ppi就是苹果声称的'视网膜屏'.
+        2.  
+        touchstart 手指放在一个DOM元素上不放时触发事件
+        touchmove手指拖拽一个DOM元素时触发事件
+        touchend手指从一个DOM元素中移开时触发事件
+        除了上述的标准触摸事件外，SenchaTouch还自定义了非常多的事件，分别如下：
+        touchdowm 手机触摸屏幕时触发事件
+        dragstart 拖拽DOM元素前触发事件
+        drag拖拽DOM元素时触发事件
+        dragend 拖拽DOM元素后触发事件
+        singletap 和tap事件类型
+        tap 手指触摸屏幕并迅速的离开屏幕
+        doubletap手指连续两次放在DOM元素上后触发事件
+        taphold触摸并保持一段时间后触发事件
+        tapcancle触摸中断事件
+        swipe滑动时触发事件
+        pinch 手指按捏一个DOM元素时触发事件
+        pinchstart 手指按捏一个DOM元素之前触发事件
+        pinchend手指按捏一个DOM元素之后触发事件
+        */
+        </script>
+    </body>
+</html>

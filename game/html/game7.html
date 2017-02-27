@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">   <!-- 更加标准的 lang 属性写法 http://zhi.hu/XyIa -->
+    <head>
+        <meta charset="utf-8">
+        <!--ios,android的浏览器都是基于webkit内核,强制让文档的宽度与设备的宽度1:1,并且文档的最大宽度比例是1.0,且不允许用户点击屏幕放大浏览-->
+        <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <!--width=device-width 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边-->
+        <!--iphone设备中的safari私有meta标签,它表示:允许全屏模式浏览-->
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <!--iphone中的私有标签,他指定iphone中safari订端的状态条的样式-->
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <!--告诉设备忽略将页面中的数字识别为电话号码-->
+        <meta content="telephone=no" name="format-detection" />
+        <!--android中禁止自动识别页面中的邮件地址,ios中不会自动识别邮件地址-->
+        <meta content="email=no" name="format-detection" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="for keywords">
+        <meta name="description" content="for description">
+        <title>走路游戏</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="../js/jquery.js"></script>
+        <script src="../js/game7.js"></script>
+    </body>
+</html>

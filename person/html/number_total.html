@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">   <!-- 更加标准的 lang 属性写法 http://zhi.hu/XyIa -->
+    <head>
+        <meta charset="utf-8">
+        <!--ios,android的浏览器都是基于webkit内核,强制让文档的宽度与设备的宽度1:1,并且文档的最大宽度比例是1.0,且不允许用户点击屏幕放大浏览-->
+        <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <!--width=device-width 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边-->
+        <!--iphone设备中的safari私有meta标签,它表示:允许全屏模式浏览-->
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <!--iphone中的私有标签,他指定iphone中safari订端的状态条的样式-->
+        <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+        <!--告诉设备忽略将页面中的数字识别为电话号码-->
+        <meta content="telephone=no" name="format-detection" />
+        <!--android中禁止自动识别页面中的邮件地址,ios中不会自动识别邮件地址-->
+        <meta content="email=no" name="format-detection" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="for keywords">
+        <meta name="description" content="for description">
+        <title>猜数字游戏</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .content {
+                padding-top: 160px;
+                width: 320px;
+                margin:0 auto;
+                text-align: center;
+            }
+            #range, .content .top, .content .bottom {
+                margin-bottom: 10px;
+            }
+            .content span {
+                color: #f90;
+            }
+            .content .bottom input {
+                width: 60px;
+            }
+            #haha {
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <p id="range">范围:<span id="min">0</span>-<span id="max">100</span></p>
+            <div class="top">
+                猜测结果: <span id="guess_res">请猜测</span>,
+                你还可以猜: <span id="count_times">6</span>次
+            </div>
+            <div class="bottom">
+                <input type="text" id="res">
+                <button id="guess">确定</button>
+            </div>
+            <button id="giveup">放弃,看结果</button>
+            <p id="haha"></p>
+        </div>
+
+        <script src="../js/jquery.js"></script>
+        <script>
+            var nCorrent,
+                oMin = $('#min'),
+                oMax = $('#max'),
+                oGuessRes = $('#guess_res'),
+                oCountTimes = $('#count_times'),
+                oTxt = $('#res'),
+                oGuess = $('#guess'),
+                oGiveUp = $('#giveup'),
+                oHaha = $('#haha');
+
+            var Page = {
+                init: function() {
+                    this.render();
+                    this.event();
+                },
+                render: function() {
+                    nCorrent = this.getRandom(parseInt(oMin.text()), parseInt(oMax.text()));
+                },
+                event: function() {
+                    var rDigital = /^\d+$/,
+                        nTxt,
+                        nMin = parseInt(oMin.text()),
+                        nMax = parseInt(oMax.text()),
+                        self = this;
+
+                    oGuess.on('click', function() {
+                        nTxt = parseInt(oTxt.val());
+
+                        if (!rDigital.test(nTxt)) {
+                            alert('不能为空,请输入数字!');
+                            oTxt.val('');
+                        } else if (nTxt === nCorrent) {
+                            oGuessRes.text('正确!');
+                            oHaha.text('恭喜你答对了!');
+                            
+                            $('button, input').each(function() {
+                                this.disabled = true;
+                            });
+                        } else if (nTxt < nMin) {
+                            alert('输入的值不能比范围最小值小!');
+                            oTxt.val('');
+                        } else if (nTxt > nMax) {
+                            alert('输入的值不能比范围最大值大!');
+                            oTxt.val('');
+                        } else if (nTxt < nCorrent){
+                            oMin.text(nTxt);
+                            oGuessRes.text('偏小!');
+                            self.guessError();
+                            oTxt.val('');
+                        } else if (nTxt > nCorrent) {
+                            oMax.text(nTxt);
+                            oGuessRes.text('偏大!');
+                            self.guessError();
+                            oTxt.val('');
+                        }
+                    });
+
+                    oGiveUp.on('click', function() {
+                        oHaha.text('你真蠢,结果是' + nCorrent + '!');
+
+                        $('button, input').each(function() {
+                            this.disabled = true;
+                        });
+                    });
+                },
+                getRandom: function(min, max) {
+                    var rand = Math.random(),
+                        range = max - min;
+
+                    return min + Math.round(rand * range);
+                },
+                guessError: function() {
+                    oCountTimes.text(oCountTimes.text() - 1);
+
+                    if (oCountTimes.text() === '0') {
+                        oHaha.text('你真蠢,结果是' + nCorrent + '!');
+
+                        $('button, input').each(function() {
+                            this.disabled = true;
+                        });
+                    }
+                }
+            }
+
+            Page.init();
+        </script>
+    </body>
+</html>

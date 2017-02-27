@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.content {
+    width: 320px;
+    margin:20px auto 0 auto;
+    text-align: center;
+}
+.content img {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 4px;
+}
+#con {
+    position: relative;
+    height: 320px;
+    border-radius: 5px;
+    background: #e1dbdb;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.content .top #dieTime, .content .top button{
+    margin-right: 5px;
+}
+.content .top {
+    margin-bottom: 10px;
+}
+button{
+    border: none;
+    width: 100px;
+    height: 30px;
+    background: #fbad25;
+    color: #fff;
+}
+.disabled {
+    background: #ccc;
+}
+
+
+

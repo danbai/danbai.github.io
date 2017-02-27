@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Helmet, Freesans, sans-serif;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <button>clear</button>
+        <div data-con="aa" class="con">aa</div>
+        <div data-con="bb" class="con">bb</div>
+        <div data-con="cc" class="con">cc</div>
+        <div data-con="dd" class="con">dd</div>
+        <div data-con="ee" class="con">ee</div>
+        <script src="../../js/jquery.js"></script>
+        <script type="x/template" id="tmpl">
+            <div class="content">
+                <h2 id="aaaa">{{aaaa}}</h2>
+                <a id="imglink" href="{{imglink}}">
+                    <img id="imgsrc" src="{{imgsrc}}" width="100" height="100">
+                </a>
+            </div>
+        </script>
+        <script>
+            $(function() {
+                var oTmpl = $('#tmpl')
+                    sTmpl = oTmpl.html();
+
+                $.ajax({
+                    url: '../js/data-template.js',
+                    type: 'GET',
+                    dataType: 'json',
+                    error: function(res) {
+                        console.log(res);
+                    },
+                    success: function(res) {
+                        console.log(res);
+                        var res = res.response,
+                            oTmp,
+                            reg = /\{\{([a-zA-Z][^\s\}]+)\}\}/g;
+
+                        $('.con').on('click', function() {
+                            oTmp = res[$(this).attr('data-con')];
+
+                            var sNewTmpl = sTmpl.replace(reg, function(fullMatch, capture) {    //return出来的替换匹配到的{{aaaa}}
+                                if (oTmp[capture]) {
+                                    return oTmp[capture];
+                                } else {
+                                    return fullMatch;
+                                }
+                            });
+
+                            console.log(sNewTmpl);
+
+                            $(this).html(sNewTmpl).attr('data-time', new Date().getTime());
+                        });
+                    }
+                });
+
+                $('button').on('click', function() {
+                    var aTime = [];
+
+                    $('.con').each(function() {
+                        aTime.push($(this).attr('data-time'));
+                    });
+
+                    console.log(aTime);
+
+                    $('.con[data-time=' + aTime.sort()[0] + ']').remove();
+                });
+            });
+        </script>
+    </body>
+</html>
