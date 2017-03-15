@@ -491,6 +491,13 @@
             "view": "89",
             "content": "<a href='./person/html/scale.html' target='_blank' class='person_href'>双指缩放</a>",
             "target": "./person/html/scale.html"
+        },
+        {
+            "title": "person",
+            "date": "2017-3-15",
+            "view": "89",
+            "content": "<a href='./person/html/nyq.html' target='_blank' class='person_href'>toNyq</a>",
+            "target": "./person/html/scale.html"
         }
     ],
     "family": [
