@@ -384,13 +384,6 @@
             "view": "89",
             "content": "<a href='./game/html/game5.html' target='_blank' class='person_href'>拼图游戏</a>",
             "target": "./game/html/game5.html"
-        },
-        {
-            "title": "game",
-            "date": "2016-1-7",
-            "view": "89",
-            "content": "<a href='./game/html/game7.html' target='_blank' class='person_href'>走路游戏</a>",
-            "target": "./game/html/game7.html"
         }
     ],
     "person": [
