@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6构造函数</title>
+</head>
+<body>
+    <script>
+        /* // 构造函数
+        function fun(a, b) {
+            this.a = a;
+            this.b = b;
+        }
+
+        fun.prototype.add = function(x) {
+            return x + this.a + this.b;
+        }
+
+        var o = new fun(1, 2);
+        console.log(o);
+        console.log(o.constructor); // coustructor属性是构造函数
+        console.log(o.add(3));  // 6
+
+        class Animal {
+            // 构造函数
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            shout() {
+                return `My name is ${this.name}, my age is ${this.age}.`;
+            }
+            // 静态方法
+            static foo() {
+                return 'Here is a static method';
+            }
+        }
+
+        const cow = new Animal('mimi', 22);
+        console.log(cow.shout());
+        console.log(Animal.foo()); // 静态方法用Animal调用
+
+        class Dog extends Animal {
+            constructor(name, age = 2, color = 'black') {
+                // 在构造函数中可以直接调用super方法
+                super(name, age);   // 调用父类的constructor,this.name=name,this.age=age
+                this.color = color;
+            }
+            shout() {
+                // 在非构造函数中不能直接使用super方法,但是可以采用super(). + 方法名字调用父类方法
+                return super.shout() + ` , color is ${this.color}`;
+            }
+        }
+
+        const jackDog = new Dog('jack');
+        console.log(jackDog.shout()); */
+
+        class Fun {
+            constructor(a, b) {
+                this.a = a;
+                this.b = b;
+            }
+            add(x) {
+                return x + this.a + this.b;
+            }
+        }
+
+        const o = new Fun(1, 2);
+        console.log(o.add(3));  //
+
+        class Funfun extends Fun {
+            constructor(a = 3, b = 4, c) {
+                super(a, b);
+                this.c = c;
+            }
+            add2(x) {
+                return x + this.a + this.b + this.c;
+            }
+            sub(x) {
+                return super.add(this.a, this.b) + this.c;
+            }
+        }
+        const p = new Funfun(3, 4, 5);
+        console.log(p);
+        console.log(p.add2(6));
+        console.log(p.sub(6));
+    </script>
+</body>
+</html>
