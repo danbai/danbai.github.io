@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>栅格系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .row {
+            width: 100%;
+        }
+        .clearfix:after {
+            content: '.';
+            height: 0;
+            display: block;
+            visibility: hidden;
+            clear: both;
+        }
+        [class^="col"] {
+            float: left;
+            background: #ddd;
+        }
+        .col-1 {
+            width: 25%;
+        }
+        .col-2 {
+            width: 50%;
+        }
+        .col-3 {
+            width: 75%;
+        }
+    </style>
+</head>
+<body>
+    <div class="row clearfix">
+        <div class="col-1">col1</div>
+        <div class="col-2">col2</div>
+        <div class="col-1">col1</div>
+    </div>
+</body>
+</html>

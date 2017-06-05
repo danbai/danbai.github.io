@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* 方案一:position:absolute;fiexed;负边距 */
+        /* .demo {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            position: absolute;
+            left: 50%;
+            margin-left: -50px;
+            top: 50%;
+            margin-top: -50px;
+        } */
+        /* 方案二:四个方向定位,margin:auto; */
+        /* .demo {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            margin: auto;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        } */
+        /* 方案三:flex布局; */
+        /* .demo-div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .demo {
+            flex: 1;
+        } */
+        /* 方案三:translateY;子容器相对定位 */
+        .demo {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-div">
+        <div class="demo">demo</div>
+    </div>
+</body>
+</html>

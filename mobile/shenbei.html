@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 0 200px;
+        }
+        .container div {
+            float: left;
+            position: relative;
+        }
+        .middle {
+            width: 100%;
+            background: #ddd;
+        }
+        .left {
+            width: 200px;
+            margin-left: -100%;
+            background: #0f0;
+            left: -200px;
+        }
+        .right {
+            width: 200px;
+            margin-left: -200px;
+            background: #0f0;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container clearifx">
+        <div class="middle">中间栏</div>
+        <div class="left">左边栏</div>
+        <div class="right">右边栏</div>
+    </div>
+</body>
+</html>
