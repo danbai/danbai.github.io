@@ -9,6 +9,8 @@ document.addEventListener('touchstart', function(e) {
         return;
     }
 
+    // touches: 表示当前位于屏幕上的所有手指动作的列表,是一个touchList类型的对象
+    // touchList是一个类数组对象,它里面装的是Touch对象
     spot = document.createElement('div');
     spot.classList.add('spot');
     spot.style.left = e.touches[0].pageX - 35 + 'px';
