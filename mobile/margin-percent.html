@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>margin百分比</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /*
+        margin的百分比值参照其包含块的宽度进行计算.
+        为什么margin: auto;无法在纵向上垂直居中?
+        因为纵向是可以无限延展的,所以没有一个一定的值可以被参照被用来计算.
+        */
+        #demo {
+            width: 1000px;
+            height: 600px;
+            border: 1px solid #ccc;
+        }
+        #demo p {
+            margin: 10% 5%;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo">
+        <p>嗯,注意看我所在的位置.</p>
+    </div>
+</body>
+</html>

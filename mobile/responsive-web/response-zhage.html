@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>响应式栅格系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* 普通屏使用960的宽度 */
+        .row {
+            width: 960px;
+        }
+        .row:after {
+            content: '.';
+            display: block;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+        [class^="col"] {
+            float: left;
+        }
+        .col1 {
+            width: 25%;
+        }
+        .col2 {
+            width: 50%;
+        }
+        .col3 {
+            width: 75%;
+        }
+        /* 较大的显示器 */
+        @media (min-width: 1200px) {
+            .row {
+                width: 1170px;
+            }
+        }
+        /* 通常是平板电脑 */
+        @media (min-width: 768px) and (max-width: 979px) {
+            .row {
+                width: 724px;
+            }
+        }
+        /* 横屏的手机或者竖屏的平板 */
+        @media (max-width: 767px) {
+            [class^="col"] {
+                float: none;
+                width: 100%;
+            }
+            .row {
+                width: 100%;
+            }
+        }
+        /* 竖屏的手机 */
+        @media (max-width: 480px) {
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="header">header</div>
+        </div>
+        <div class="row">
+            <div class="col1">nav</div>
+            <div class="col2">main</div>
+            <div class="col1">aside</div>
+        </div>
+        <div class="row">
+            <div class="footer">footer</div>
+        </div>
+    </div>
+</body>
+</html>
