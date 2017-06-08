@@ -1,0 +1,15 @@
+$blue: #1875e7;
+
+.demo {
+    font-size: 20px;
+    color: $blue;
+
+    .p1 {
+        color: #f00;
+    }
+
+    .p2 {
+        font-size: 12px;
+        color: $blue;
+    }
+}

@@ -1,0 +1,49 @@
+@import 'import';
+
+$blue: #00f;
+$hover-color: #f00;
+$size: 20px;
+$blue-bg: #ff0;
+@mixin border-radius-5 {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.demo {
+    font-size: $size;
+
+    p {
+        $border: 1px solid #ccc;
+        color: $blue;
+        border: $border;
+    }
+
+    &:hover p {
+        color: $hover-color;
+    }
+
+    h1, h2, h3 {
+        cursor: pointer;
+        border: {
+            width: 2px;
+            color: #0f0;
+            style: solid;
+        }
+        @include border-radius-5;
+    }
+
+    ~.demo {
+        background-color: $blue-bg; 
+    }
+
+    .error {
+        color: #f00;
+        border: 1px solid #f00;
+    }
+
+    .error-more {
+        @extend .error;
+        font-size: $size;
+    }
+}
