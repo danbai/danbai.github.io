@@ -5,9 +5,12 @@ module.exports = {
     devtool: 'cheap-module-eval-source-map',
     devServer: {
         hot: true,
-        inline: true
+        inline: true,
+        historyApiFallback: {
+            index: 'index.html'
+        }
     },
-    entry: path.join(__dirname, './src/index.jsx'),
+    entry: './src/index.jsx',
     output: {
         path: __dirname,
         filename: 'bundle.js'
@@ -17,6 +20,9 @@ module.exports = {
             test: /\.jsx?$/,
             loader: 'babel-loader',
             exclude: /node_modules/
+        }, {
+            test: /\.scss$/,
+            loaders: ['style-loader', 'css-loader', 'sass-loader']
         }]
     }
 };

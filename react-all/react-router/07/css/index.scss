@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0
+}
+#root {
+    .header {
+        background: #ccc;
+    }
+    .clearfix:after {
+        clear: both;
+        content: '';
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+    .left {
+        float: left;
+        width: 100px;
+    }
+    .right {
+        float: left;
+    }
+}
