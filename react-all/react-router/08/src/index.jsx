@@ -13,8 +13,7 @@ render(
             <IndexRoute component={ Nav1 } />
             <Route path="nav1" component={ Nav1 } />
             <Route path="nav2" component={ Nav2 }>
-                <Route path="/message/:id" component={ Message } />
-                <Redirect from="message/:id" to="/message/:id" />
+                <Route path="message/:id" component={ Message } />
             </Route>
             <Route path="nav3" component={ Nav3 } />
         </Route>

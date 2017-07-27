@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-class Nav3 extends Component {
+class App extends Component {
 	render() {
 		return (
-			<div>Nav3</div>
+			<div>111</div>
 		);
 	}
 }
 
-export default Nav3;
+export default App;

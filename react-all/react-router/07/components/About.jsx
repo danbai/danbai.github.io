@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { IndexLink } from 'react-router';
 
-class Nav1 extends Component {
+class About extends Component {
 	render() {
+		console.log(this.props.id);
 		return (
 			<div>
-				Nav1
-				<IndexLink to="/">home</IndexLink>
+				About, { this.props.id }
 			</div>
 		);
 	}
 }
 
-export default Nav1;
+export default About;
