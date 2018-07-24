@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEA,KAAM,CACF,SAAS,CAAE,IAAI,CACf,KAAK,CAJF,OAAO,CAMV,SAAI,CACA,KAAK,CAAE,IAAI,CAGf,SAAI,CACA,SAAS,CAAE,IAAI,CACf,KAAK,CAZN,OAAO",
-"sources": ["demo.scss"],
-"names": [],
-"file": "demo-output2.css"
-}
