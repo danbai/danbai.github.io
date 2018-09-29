@@ -15,13 +15,20 @@ module.exports = {
             loader: 'babel-loader',
             exclude: /node_modules/
         }, {
-            test: /\.css$/,
-            loaders: ['style-loader', 'css-loader'],
+            test: /\.scss$/,
+            loaders: ['style-loader', 'css-loader', 'sass-loader'],
             include: APP_PATH
+        }, {
+            test: /\.css$/,
+            loaders: ['style-loader', 'css-loader']
+        }, {
+            test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+            loader: 'file-loader'
         }]
     },
     devtool: 'cheap-module-eval-source-map',
     devServer: {
-        hot: true
+        hot: true,
+        historyApiFallback: true
     }
 }
